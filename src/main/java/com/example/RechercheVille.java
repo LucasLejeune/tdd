@@ -13,15 +13,20 @@ public class RechercheVille {
     }
 
    public List<String> rechercher(String mot) throws NotFound, UnsupportedOperationException  {
+    if (mot.equals("*")) {
+        return villes;
+    }
     if (mot.length() < 2) {
         throw new NotFound();
     }
+
     List<String> results = new ArrayList<String>();
     for (String ville : villes) {
         if (ville.toLowerCase().contains(mot.toLowerCase())) {
             results.add(ville);
         }
     }
+    
     return results;
    }
 }
