@@ -7,12 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+import org.junit.Assert;
 
 public class ShopTest {
 
     public Product lait;
     public Product cereale;
     public Product chocolat;
+    public Product steack;
 
     public Shop setup(){
         List<Product> products = new ArrayList<Product>();
@@ -22,6 +24,8 @@ public class ShopTest {
         products.add(this.cereale);
         this.chocolat = new Product("Chocobons", "Chocolat", 0, 0);
         products.add(this.chocolat);
+        this.steack = new Product("Steak", "Viande", 20, 60);
+        products.add(this.steack);
     
         Shop shop = new Shop(products);
         return shop;
@@ -32,7 +36,7 @@ public class ShopTest {
         Shop shop = this.setup();
         shop.update(this.cereale);
 
-        assertEquals((Integer) 2, this.cereale.getQuality());
+        Assert.assertEquals((Integer) 2, this.cereale.getQuality());
     }
 
     @Test
@@ -40,6 +44,14 @@ public class ShopTest {
         Shop shop = this.setup();
         shop.update(this.chocolat);
 
-        assertTrue(this.chocolat.getQuality() >= 0);
+        Assert.assertTrue(this.chocolat.getQuality() >= 0);
+    }
+
+    @Test
+    public void checkIfQuality_IsNotHigherThan50(){
+        Shop shop = this.setup();
+        shop.update(this.steack);
+
+        Assert.assertFalse(this.steack.getQuality() > 50);
     }
 }
