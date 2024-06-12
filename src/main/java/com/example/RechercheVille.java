@@ -18,7 +18,7 @@ public class RechercheVille {
     }
     List<String> results = new ArrayList<String>();
     for (String ville : villes) {
-        if (ville.startsWith(mot)) {
+        if (ville.toLowerCase().startsWith(mot.toLowerCase())) {
             results.add(ville);
         }
     }
