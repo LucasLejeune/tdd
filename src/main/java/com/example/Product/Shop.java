@@ -9,16 +9,17 @@ import java.util.List;
     }
     
     public void update(Product product) {
-        if (product.getSellIn() <= 0) {
-            product.lowerQuality(2);
-            System.out.println("oui");
-            }
-            else {
-                product.lowerQuality(1);
-                System.out.println("non");
-            }
-            System.out.println("aaaaaaaaaaaaaaa");
+        if (product.getQuality() == 0) {
+            System.out.println(product.name + " as a quality of 0, can't go lower");
+            return;
         }
+        else if (product.getSellIn() <= 0 && product.getQuality() > 1) {
+            product.lowerQuality(2);
+            }
+        else {
+            product.lowerQuality(1);
+        }
+    }
 
     public List<Product> getProducts() {
         return products;

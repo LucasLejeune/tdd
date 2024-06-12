@@ -40,6 +40,6 @@ public class ShopTest {
         Shop shop = this.setup();
         shop.update(this.chocolat);
 
-        assertTrue(this.chocolat.getQuality() > 0);
+        assertTrue(this.chocolat.getQuality() >= 0);
     }
 }
