@@ -35,4 +35,15 @@ class AppTest {
 
         Assert.assertArrayEquals(expectedList.toArray(), results.toArray());
     }
+
+    @Test
+    public void whenSeach_HasMoreThanOneCharacter_ReturnListOfCitiesThatStartWithTheResearchNotCaseSensitive() throws NotFound, UnsupportedOperationException{
+        RechercheVille rechercheVille = this.rechercheVilleIni();
+
+        List<String> results = rechercheVille.rechercher("va");
+        List<String> expectedList = new ArrayList<String>();
+        expectedList.addAll(Arrays.asList("Valence", "Vancouver"));
+
+        Assert.assertArrayEquals(expectedList.toArray(), results.toArray());
+    }
 }
