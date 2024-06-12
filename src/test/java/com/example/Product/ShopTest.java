@@ -18,7 +18,7 @@ public class ShopTest {
 
     public Shop setup(){
         List<Product> products = new ArrayList<Product>();
-        this.lait = new Product("Brique de lait", "Produit laitier", 5, 10);
+        this.lait = new Product("Brie vieilli", "Produit laitier", 5, 10);
         products.add(this.lait);
         this.cereale = new Product("Cookie crisps", "Céréales", 0, 4);
         products.add(this.cereale);
@@ -53,5 +53,13 @@ public class ShopTest {
         shop.update(this.steack);
 
         Assert.assertFalse(this.steack.getQuality() > 50);
+    }
+
+    @Test
+    public void whenBrieVieilliUpdate_QualityIncreaseBy2(){
+        Shop shop = this.setup();
+        shop.update(this.lait);
+
+        Assert.assertEquals((Integer) 12, this.lait.getQuality());
     }
 }
