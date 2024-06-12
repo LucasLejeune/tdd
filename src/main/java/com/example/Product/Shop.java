@@ -17,9 +17,12 @@ import java.util.List;
             System.out.println(product.name + " quality exceed 50, can't go higher");
             product.quality = 50;
         }
-        
+
         if (product.name.equals("Brie vieilli")) {
             product.increaseQuality(2);
+        }
+        else if (product.type.equals("Produit laitier")) {
+            product.lowerQuality(2);
         }
         else if (product.getSellIn() <= 0 && product.getQuality() > 1) {
             product.lowerQuality(2);
