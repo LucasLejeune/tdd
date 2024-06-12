@@ -1,5 +1,6 @@
 package com.example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.omg.CosNaming.NamingContextPackage.NotFound;
@@ -15,6 +16,12 @@ public class RechercheVille {
     if (mot.length() < 2) {
         throw new NotFound();
     }
-      throw new UnsupportedOperationException("Not implemented");
+    List<String> results = new ArrayList<String>();
+    for (String ville : villes) {
+        if (ville.startsWith(mot)) {
+            results.add(ville);
+        }
+    }
+    return results;
    }
 }
