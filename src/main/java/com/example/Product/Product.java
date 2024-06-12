@@ -46,11 +46,17 @@ public class Product {
     }
 
     public void lowerQuality(Integer amount) {
-        this.quality -= amount;
+        if (this.quality - amount >= 0) {
+            this.quality -= amount;
+        }
     }
 
     public void increaseQuality(Integer amount) {
-        this.quality += amount;
+        if (this.quality + amount < 50) {
+            this.quality += amount;
+        } else {
+            this.quality = 50;
+        }
     }
 
     
