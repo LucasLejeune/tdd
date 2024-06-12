@@ -57,4 +57,15 @@ class AppTest {
 
         Assert.assertArrayEquals(expectedList.toArray(), results.toArray());
     }
+
+    @Test
+    public void whenSearch_IsAsterisk_ReturnAllCities() throws NotFound, UnsupportedOperationException{
+        RechercheVille rechercheVille = this.rechercheVilleIni();
+
+        List<String> results = rechercheVille.rechercher("*");
+        List<String> expectedList = new ArrayList<String>();
+        expectedList.addAll(Arrays.asList("Paris", "Budapest", "Skopje", "Rotterdam", "Valence", "Vancouver", "Amsterdam", "Vienne", "Sydney", "New York", "Londres", "Bangkok", "Hong Kong", "Dubaï", "Rome", "Istanbul"));
+
+        Assert.assertArrayEquals(expectedList.toArray(), results.toArray());
+    }
 }
