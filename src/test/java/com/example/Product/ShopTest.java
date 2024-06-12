@@ -27,7 +27,7 @@ public class ShopTest {
         products.add(this.cereale);
         this.chocolat = new Product("Chocobons", "Chocolat", 0, 0);
         products.add(this.chocolat);
-        this.steack = new Product("Steak", "Viande", 20, 60);
+        this.steack = new Product("Steak", "Viande", 20, 40);
         products.add(this.steack);
     
         Shop shop = new Shop(products);
