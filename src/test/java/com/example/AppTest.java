@@ -53,7 +53,7 @@ class AppTest {
 
         List<String> results = rechercheVille.rechercher("En");
         List<String> expectedList = new ArrayList<String>();
-        expectedList.addAll(Arrays.asList("Valence", "Viennes"));
+        expectedList.addAll(Arrays.asList("Valence", "Vienne"));
 
         Assert.assertArrayEquals(expectedList.toArray(), results.toArray());
     }
