@@ -5,14 +5,13 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 public class ShopTest {
 
-    private Product lait;
-    private Product cereale;
-    private Product chocolat;
+    public Product lait;
+    public Product cereale;
+    public Product chocolat;
 
     public Shop setup(){
         List<Product> products = new ArrayList<Product>();
@@ -30,8 +29,8 @@ public class ShopTest {
     @Test
     public void whenSellInEquals0_QualityLowerTwiceFaster(){
         Shop shop = this.setup();
-        shop.update(cereale);
+        shop.update(this.cereale);
 
-        assertEquals((Integer) 2, cereale.getSellIn());
+        assertEquals((Integer) 2, this.cereale.getQuality());
     }
 }

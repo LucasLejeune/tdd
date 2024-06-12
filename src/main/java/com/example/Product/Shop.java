@@ -9,8 +9,16 @@ import java.util.List;
     }
     
     public void update(Product product) {
-        throw new UnsupportedOperationException("Not implemented");
-    }
+        if (product.getSellIn() <= 0) {
+            product.lowerQuality(2);
+            System.out.println("oui");
+            }
+            else {
+                product.lowerQuality(1);
+                System.out.println("non");
+            }
+            System.out.println("aaaaaaaaaaaaaaa");
+        }
 
     public List<Product> getProducts() {
         return products;
