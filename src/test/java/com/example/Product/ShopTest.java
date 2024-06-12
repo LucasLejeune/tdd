@@ -1,6 +1,7 @@
 package com.example.Product;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ public class ShopTest {
         products.add(this.lait);
         this.cereale = new Product("Cookie crisps", "Céréales", 0, 4);
         products.add(this.cereale);
-        this.chocolat = new Product("Chocobons", "Chocolat", 8, 7);
+        this.chocolat = new Product("Chocobons", "Chocolat", 0, 0);
         products.add(this.chocolat);
     
         Shop shop = new Shop(products);
@@ -32,5 +33,13 @@ public class ShopTest {
         shop.update(this.cereale);
 
         assertEquals((Integer) 2, this.cereale.getQuality());
+    }
+
+    @Test
+    public void whenQualityEqualsZero_QualityDontGoNegative(){
+        Shop shop = this.setup();
+        shop.update(this.chocolat);
+
+        assertTrue(this.chocolat.getQuality() > 0);
     }
 }
