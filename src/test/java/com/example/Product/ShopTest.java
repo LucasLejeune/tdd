@@ -12,14 +12,17 @@ import org.junit.Assert;
 public class ShopTest {
 
     public Product lait;
+    public Product fromage;
     public Product cereale;
     public Product chocolat;
     public Product steack;
 
     public Shop setup(){
         List<Product> products = new ArrayList<Product>();
-        this.lait = new Product("Brie vieilli", "Produit laitier", 5, 10);
+        this.lait = new Product("Brique de lait", "Produit laitier", 5, 10);
         products.add(this.lait);
+        this.fromage = new Product("Brie vieilli", "Produit laitier", 5, 10);
+        products.add(this.fromage);
         this.cereale = new Product("Cookie crisps", "Céréales", 0, 4);
         products.add(this.cereale);
         this.chocolat = new Product("Chocobons", "Chocolat", 0, 0);
@@ -58,8 +61,16 @@ public class ShopTest {
     @Test
     public void whenBrieVieilliUpdate_QualityIncreaseBy2(){
         Shop shop = this.setup();
+        shop.update(this.fromage);
+
+        Assert.assertEquals((Integer) 12, this.fromage.getQuality());
+    }
+
+    @Test
+    public void whenMilk_LowerQualityBy2(){
+        Shop shop = this.setup();
         shop.update(this.lait);
 
-        Assert.assertEquals((Integer) 12, this.lait.getQuality());
+        Assert.assertEquals((Integer) 8, this.lait.getQuality());
     }
 }
